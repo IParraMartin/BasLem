@@ -23,7 +23,7 @@ list_tokens = clean.split()
 # lemmatizing and stemming
 def get_lemmas(data):
 
-    stoppers = ['eta']
+    stoppers = ['eta', 'baina', 'zela']
     lemmatized_tokens = []
 
     for token in data:
