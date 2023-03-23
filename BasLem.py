@@ -19,5 +19,16 @@ list_tokens = clean.split()
 print(list_tokens)
 
 
+def get_lemmas(data):
+
+    tokens = data
+
+    for token in tokens:
+        if token = 
+
+
+
+
+
 
 
