@@ -7,4 +7,6 @@ I present a basic code (currently under costruction) to lemmatize and stemm Basq
 # Limitations
 Even if it is able to clean text and modify determiner in nouns (katua < katu[0]), it still needs 'bounding' of exceptions. I will be working on that.
 
-I am also working on ways to effectively lemmatize complex word formations such as verbs and cases. 
+I am also working on ways to effectively lemmatize complex word formations such as verbs and cases.
+
+- There is a new addition to the code that allows skipping exceptions (get_lemmas -> stoppers = str)
