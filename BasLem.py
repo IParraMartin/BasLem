@@ -1,8 +1,10 @@
 import re
 
+# example to test the performance
 text = '-Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik.'
 
 
+# cleaning function
 def get_clean_text(data):
 
     lowercase = data.lower()
@@ -18,6 +20,7 @@ clean = get_clean_text(text)
 
 list_tokens = clean.split()
 
+# lemmatizing and stemming
 def get_lemmas(data):
 
     stoppers = ['eta']
@@ -35,7 +38,6 @@ def get_lemmas(data):
             lemmatized_tokens.append(token)
 
     return lemmatized_tokens
-
 
 lemmatized = get_lemmas(list_tokens)
 print(lemmatized)
