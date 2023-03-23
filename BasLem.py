@@ -48,13 +48,16 @@ def get_lemmas(data):
 
             for token in listatik:
 
-                if token.endswith('etatik'):
-                    token = token[:-6] #one character less to delete for double vowels
-                    lemmatized_tokens.append(token)
+                if re.search(r'(etatik|tatik)$', token):
 
-                else:
-                    token = token[:-5] #usual -tatik
-                    lemmatized_tokens.append(token)
+                    if token.endswith('etatik'):
+
+                        token = token[:-6] #one character less to delete for double vowels
+                        lemmatized_tokens.append(token)
+
+                    else:
+                        token = token[:-5] #usual -tatik
+                        lemmatized_tokens.append(token)
         
         else:
 
