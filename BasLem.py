@@ -24,6 +24,7 @@ list_tokens = clean.split()
 def get_lemmas(data):
 
     stoppers = ['eta', 'baina', 'zela']
+    listatik = []
     lemmatized_tokens = []
 
     for token in data:
@@ -43,13 +44,17 @@ def get_lemmas(data):
 
         elif token.endswith('tatik'):
 
-            if token.endswith():
-                token = token[:-6] #one space more to delete double vowels
-                lemmatized_tokens.append(token)
-                
-            else:
-                token = token[:-5]
-                lemmatized_tokens.append(token)
+            listatik.append(token)
+
+            for token in listatik:
+
+                if token.endswith('etatik'):
+                    token = token[:-6] #one character less to delete for double vowels
+                    lemmatized_tokens.append(token)
+
+                else:
+                    token = token[:-5] #usual -tatik
+                    lemmatized_tokens.append(token)
         
         else:
 
