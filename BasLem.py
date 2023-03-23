@@ -1,6 +1,7 @@
 import re
 
-text = '-Nire etxerantz joan ginen Bilboko kaleetatik.'
+text = '-Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik.'
+
 
 def get_clean_text(data):
 
@@ -13,22 +14,24 @@ def get_clean_text(data):
     return clean
 
 clean = get_clean_text(text)
-print(clean)
+
 
 list_tokens = clean.split()
-print(list_tokens)
 
 
 def get_lemmas(data):
 
-    tokens = data
+    lemmatized_tokens = []
 
-    for token in tokens:
-        if token = 
+    for token in data:
+    
+        if token.endswith('a'):
 
+            token = token[:-1]
 
+        lemmatized_tokens.append(token)
 
+    return lemmatized_tokens
 
-
-
-
+lemmatized = get_lemmas(list_tokens)
+print(lemmatized)
