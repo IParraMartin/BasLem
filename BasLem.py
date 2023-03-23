@@ -33,6 +33,24 @@ def get_lemmas(data):
             token = token[:-1]
             lemmatized_tokens.append(token)
         
+        elif token.endswith('rantz'):
+            token = token[:-5]
+            lemmatized_tokens.append(token)
+
+        elif token.endswith('ko'):
+            token = token[:-2]
+            lemmatized_tokens.append(token)
+
+        elif token.endswith('tatik'):
+
+            if token.endswith():
+                token = token[:-6] #one space more to delete double vowels
+                lemmatized_tokens.append(token)
+                
+            else:
+                token = token[:-5]
+                lemmatized_tokens.append(token)
+        
         else:
 
             lemmatized_tokens.append(token)
