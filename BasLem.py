@@ -18,20 +18,24 @@ clean = get_clean_text(text)
 
 list_tokens = clean.split()
 
-
 def get_lemmas(data):
 
+    stoppers = ['eta']
     lemmatized_tokens = []
 
     for token in data:
     
-        if token.endswith('a'):
+        if token.endswith('a') and token not in stoppers:
 
             token = token[:-1]
+            lemmatized_tokens.append(token)
+        
+        else:
 
-        lemmatized_tokens.append(token)
+            lemmatized_tokens.append(token)
 
     return lemmatized_tokens
+
 
 lemmatized = get_lemmas(list_tokens)
 print(lemmatized)
