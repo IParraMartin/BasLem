@@ -3,7 +3,6 @@ import re
 # example to test the performance
 text = '- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen dut.'
 
-
 # cleaning function
 def get_clean_text(data):
 
@@ -24,9 +23,11 @@ list_tokens = clean.split()
 def get_lemmas(data):
 
     stoppers = ['eta', 'baina', 'zela']
+    eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue']
     listatik = []
     lemmatized_tokens = []
-    eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue']
+    
+    changes_counter = 0
 
     for token in data:
     
@@ -34,14 +35,17 @@ def get_lemmas(data):
 
             token = token[:-1]
             lemmatized_tokens.append(token)
+            changes_counter += 1
         
         elif token.endswith('rantz'):
             token = token[:-5]
             lemmatized_tokens.append(token)
+            changes_counter += 1
 
         elif token.endswith('ko'):
             token = token[:-2]
             lemmatized_tokens.append(token)
+            changes_counter += 1
 
         elif token.endswith('tatik'):
 
@@ -55,25 +59,31 @@ def get_lemmas(data):
 
                         token = token[:-6] #one character less to delete for double vowels
                         lemmatized_tokens.append(token)
+                        changes_counter += 1
 
                     else:
                         token = token[:-5] #usual -tatik
                         lemmatized_tokens.append(token)
+                        changes_counter += 1
         
         elif token.endswith('tzen'):
 
             token = token[:-4]
             token = token+str('tu')
             lemmatized_tokens.append(token)
+            changes_counter += 1
 
         elif token in eduki_verb:
 
             token = 'eduki'
             lemmatized_tokens.append(token)
+            changes_counter += 1
 
         else:
 
             lemmatized_tokens.append(token)
+    
+    print(f'Changes made: {changes_counter}')
 
     return lemmatized_tokens
 
