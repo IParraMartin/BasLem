@@ -1,7 +1,7 @@
 import re
 
 # example to test the performance
-text = '-Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik.'
+text = '- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen.'
 
 
 # cleaning function
@@ -58,6 +58,12 @@ def get_lemmas(data):
                     else:
                         token = token[:-5] #usual -tatik
                         lemmatized_tokens.append(token)
+        
+        elif token.endswith('tzen'):
+
+            token = token[:-4]
+            token = token+str('tu')
+            lemmatized_tokens.append(token)
         
         else:
 
