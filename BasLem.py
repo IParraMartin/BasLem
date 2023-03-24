@@ -25,7 +25,7 @@ def get_lemmas(data):
     changes_counter = 0
     
     stoppers = ['eta', 'baina', 'zela']
-    eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue']
+    eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue', 'ditut', 'dituzu', 'ditu', 'dituzte', 'dituzue']
     listatik = []
     lemmatized_tokens = []
 
