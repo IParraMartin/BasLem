@@ -13,3 +13,5 @@ Even if it is able to clean text and modify determiner in nouns (katua < katu[0]
 I am also working on ways to effectively lemmatize complex word formations such as verbs and cases.
 
 - There is a new addition to the code that allows skipping exceptions (get_lemmas -> stoppers = str)
+- New additions on present participle lemmatizing (e.g. jokatzen < jokatu)
+- Verb 'eduki' (to have) in present form is now normalized to its infinitival form
