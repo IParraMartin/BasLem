@@ -1,7 +1,7 @@
 import re
 
 # example to test the performance
-text = '- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen.'
+text = '- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen dut.'
 
 
 # cleaning function
@@ -26,6 +26,7 @@ def get_lemmas(data):
     stoppers = ['eta', 'baina', 'zela']
     listatik = []
     lemmatized_tokens = []
+    eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue']
 
     for token in data:
     
@@ -64,7 +65,12 @@ def get_lemmas(data):
             token = token[:-4]
             token = token+str('tu')
             lemmatized_tokens.append(token)
-    
+
+        elif token in eduki_verb:
+
+            token = 'eduki'
+            lemmatized_tokens.append(token)
+
         else:
 
             lemmatized_tokens.append(token)
