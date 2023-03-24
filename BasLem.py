@@ -22,12 +22,12 @@ list_tokens = clean.split()
 # lemmatizing and stemming
 def get_lemmas(data):
 
+    changes_counter = 0
+    
     stoppers = ['eta', 'baina', 'zela']
     eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue']
     listatik = []
     lemmatized_tokens = []
-    
-    changes_counter = 0
 
     for token in data:
     
