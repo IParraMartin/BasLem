@@ -12,6 +12,7 @@ I present a basic code (currently under costruction) to lemmatize and stemm Basq
 - New additions on present participle lemmatizing (e.g. jokatzen < jokatu)
 - Verb 'eduki' (to have) in present form is now normalized to its infinitival form
 - Added change counter. Visualizes the relative effectivity of the lemmatizer/stemmer
+- Now normalizing to ASCII
 
 ## Limitations
 Even if it is able to clean text and modify determiner in nouns (katua < katu[0]), it still needs 'bounding' of exceptions. I will be working on that.
