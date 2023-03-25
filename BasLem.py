@@ -1,21 +1,22 @@
 import re
+import unicodedata
 
 # example to test the performance
-text = '- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen dut.'
+text = '- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen dut andereño.'
 
 # cleaning function
 def get_clean_text(data):
+
+    data = unicodedata.normalize('NFKD', data).encode('ascii', 'ignore').decode('utf-8')
 
     lowercase = data.lower()
     numbers = re.sub('[0-9]', ' ', lowercase)
     punctuation = re.sub('[^\w]', ' ', numbers)
     spacing = re.sub("\s\s+", " ", punctuation)
-    clean = spacing
 
-    return clean
+    return spacing
 
 clean = get_clean_text(text)
-
 
 list_tokens = clean.split()
 
