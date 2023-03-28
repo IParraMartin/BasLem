@@ -31,30 +31,34 @@ class Tokenization:
 
         changes_counter = 0
         
+        
         stoppers = ['eta', 'baina', 'zela'] 
         eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue', 'ditut', 'dituzu', 'ditu', 'dituzte', 'dituzue']
         listatik = []
         lemmatized_tokens = []
         conjugations = ["a", 'rantz', 'ko', 'etatik', 'tatik', 'tzen']
         
+
         tokens = data.split()
 
         for token in tokens:
 
-            for conjugation in conjugations:
-
-                if token.endswith(conjugation) and token not in stoppers:
-
-                    token = token[:-1*len(conjugation)]
-                    lemmatized_tokens.append(token)
-                    changes_counter+=1
-
-                    break
-
-            if token != token.endswith(conjugation):
+            if not token.endswith(tuple(conjugations)):
 
                 token = token
                 lemmatized_tokens.append(token)
+            
+            else:
+            
+                for conjugation in conjugations:
+
+                    if token.endswith(conjugation) and token not in stoppers:
+
+                        token = token[:-1*len(conjugation)]
+                        lemmatized_tokens.append(token)
+                        changes_counter+=1
+
+                        break
 
         return lemmatized_tokens
     
