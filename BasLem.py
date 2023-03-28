@@ -5,13 +5,15 @@ class Tokenization:
 
     def __init__(self):
 
-        try: #runs a try to make sure the requirements are fullfilled
+        try: 
             import re
+
         except:
             print("Regex library is not installed, try pip install re")
 
         try:
             import unicodedata
+
         except:
             print("Unicodedata library is not installed, try pip install unicodedata")
 
@@ -30,14 +32,12 @@ class Tokenization:
     def get_lemmas(self, data):
 
         changes_counter = 0
-        
-        
+
         stoppers = ['eta', 'baina', 'zela'] 
         eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue', 'ditut', 'dituzu', 'ditu', 'dituzte', 'dituzue']
         listatik = []
         lemmatized_tokens = []
         conjugations = ["a", 'rantz', 'ko', 'etatik', 'tatik', 'tzen']
-        
 
         tokens = data.split()
 
