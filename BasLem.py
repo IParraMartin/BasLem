@@ -1,7 +1,7 @@
 import re
 import unicodedata
 
-class tokenization:
+class Tokenization:
 
     def __init__(self):
 
@@ -49,7 +49,6 @@ class tokenization:
         return lemmatized_tokens
     
     
-
 
 tokenizer = tokenization()
 
