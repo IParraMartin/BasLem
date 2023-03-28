@@ -17,6 +17,7 @@ class Tokenization:
         except:
             print("Unicodedata library is not installed, try pip install unicodedata")
 
+
     def get_clean_text(self, data):
 
         data = unicodedata.normalize('NFKD', data).encode('ascii', 'ignore').decode('utf-8')
@@ -28,35 +29,42 @@ class Tokenization:
 
         return spacing
     
+
     def get_lemmas(self, data):
 
         changes_counter = 0
         
-        stoppers = ['eta', 'baina', 'zela']
+        stoppers = ['eta', 'baina', 'zela'] 
         eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue', 'ditut', 'dituzu', 'ditu', 'dituzte', 'dituzue']
         listatik = []
         lemmatized_tokens = []
         conjugations = ["a", 'rantz', 'ko', 'etatik', 'tatik', 'tzen']
-        conjugations = ['etatik', 'tatik', 'rantz', 'a' , 'k'] # check for biggest conjugations first
+        
+        tokens = data.split()
 
-        for token in data:
+        for token in tokens:
+
             for conjugation in conjugations:
+
                 if token.endswith(conjugation) and token not in stoppers:
+
                     token = token[:-1*len(conjugation)]
                     lemmatized_tokens.append(token)
                     changes_counter+=1
+
                     break
+
+            if token != token.endswith(conjugation):
+                token = token
+                lemmatized_tokens.append(token)
+
         return lemmatized_tokens
     
     
-
-tokenizer = tokenization()
-
+tokenizer = Tokenization()
 text = "- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen."
-
 data = tokenizer.get_clean_text(text)
         
-
 
 # import re
 # import unicodedata
