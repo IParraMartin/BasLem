@@ -63,8 +63,10 @@ class Tokenization:
         return lemmatized_tokens
     
 
-tokenizer = Tokenization()
+
 text = "- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen."
+
+tokenizer = Tokenization()
 data = tokenizer.get_clean_text(text)
 
 
