@@ -7,13 +7,11 @@ class Tokenization:
 
         try: #runs a try to make sure the requirements are fullfilled
             import re
-
         except:
             print("Regex library is not installed, try pip install re")
 
         try:
             import unicodedata
-
         except:
             print("Unicodedata library is not installed, try pip install unicodedata")
 
@@ -21,7 +19,6 @@ class Tokenization:
     def get_clean_text(self, data):
 
         data = unicodedata.normalize('NFKD', data).encode('ascii', 'ignore').decode('utf-8')
-
         lowercase = data.lower()
         numbers = re.sub('[0-9]', ' ', lowercase)
         punctuation = re.sub('[^\w]', ' ', numbers)
@@ -55,16 +52,31 @@ class Tokenization:
                     break
 
             if token != token.endswith(conjugation):
+
                 token = token
                 lemmatized_tokens.append(token)
 
         return lemmatized_tokens
     
-    
+
 tokenizer = Tokenization()
 text = "- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen."
 data = tokenizer.get_clean_text(text)
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # import re
 # import unicodedata
