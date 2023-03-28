@@ -1,0 +1,9 @@
+import BasLem
+
+tokenizer = BasLem.tokenization()
+
+text = "- Katua eta ni nire etxerantz joan ginen Bilboko kaleetatik jokatzen."
+
+data = tokenizer.get_clean_text(text)
+
+print(data)
