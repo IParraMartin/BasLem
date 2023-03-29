@@ -1,6 +1,8 @@
 import re
 import unicodedata
 
+
+
 class Tokenization:
 
     def __init__(self):
@@ -34,31 +36,39 @@ class Tokenization:
         changes_counter = 0
 
         stoppers = ['eta', 'baina', 'zela'] 
-        eduki_verb = ['dut', 'duzu', 'du', 'dute', 'duzue', 'ditut', 'dituzu', 'ditu', 'dituzte', 'dituzue']
-        listatik = []
+        eduki_verb = ['dut', 'duzu', 'ditut', 'dituzu', 'dituzue', 'dituzte', 'neukan', 'nituen', 'zituen', 'zituzten']
         lemmatized_tokens = []
-        conjugations = ["a", 'rantz', 'ko', 'etatik', 'tatik', 'tzen']
+        declinations = ["a", 'rantz', 'ko', 'etatik', 'tatik', 'tzen']
 
         tokens = data.split()
 
         for token in tokens:
 
-            if not token.endswith(tuple(conjugations)):
+            if not token.endswith(tuple(declinations)) and token not in eduki_verb:
 
                 token = token
                 lemmatized_tokens.append(token)
-            
+                        
             else:
-            
-                for conjugation in conjugations:
 
-                    if token.endswith(conjugation) and token not in stoppers:
+                for form in eduki_verb:
 
-                        token = token[:-1*len(conjugation)]
+                    if token == form:
+
+                        token = 'eduki'
+                        lemmatized_tokens.append(token)
+                        changes_counter+=1
+    
+                for declination in declinations:
+
+                    if token.endswith(declination) and token not in stoppers:
+
+                        token = token[:-1*len(declination)]
                         lemmatized_tokens.append(token)
                         changes_counter+=1
 
                         break
+
 
         return lemmatized_tokens
     
