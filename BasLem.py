@@ -35,10 +35,15 @@ class Tokenization:
 
         changes_counter = 0
 
-        stoppers = ['eta', 'baina', 'zela'] 
-        eduki_verb = ['dut', 'duzu', 'ditut', 'dituzu', 'dituzue', 'dituzte', 'neukan', 'nituen', 'zituen', 'zituzten']
+        stoppers = ['eta', 'baina', 'zela']
+
+        eduki_verb = ['dut', 'duzu', 'ditut', 'dituzu', 'dituzue', 'dituzte', 
+                      'neukan', 'nituen', 'zituen', 'zituzten', 'zenituen', 'dauka']
+        
+        izan_verb = ['naiz', 'zara', 'da', 'gara', 'zarete', 'nintzen', 'zinen', 'zen', 'ginen', 'zineten']
+        
         lemmatized_tokens = []
-        declinations = ["a", 'rantz', 'ko', 'etatik', 'tatik', 'tzen']
+        declinations = ['a', 'rantz', 'ko', 'etatik', 'tatik', 'tzen']
 
         tokens = data.split()
 
